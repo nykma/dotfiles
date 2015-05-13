@@ -1,3 +1,4 @@
+# ~/.config/fish/config.fish
 # Path to your oh-my-fish.
 # Install oh-my-fish first!
 # curl -L https://github.com/bpinto/oh-my-fish/raw/master/tools/install.fish | fish
