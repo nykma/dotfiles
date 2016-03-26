@@ -19,10 +19,6 @@ URxvt.shading: 15
 URxvt.mouseWheelScrollPage: true
 ! URxvt.background: rgba:1111/1111/1111/dddd
 URxvt.perl-ext-common: default,matcher,clipboard,keyboard-select
-! URxvt.font: xft:Terminus-12,xft:WenQuanYi Bitmap Song-12
-! URxvt.boldFont: xft:Terminus-12:Bold,xft:WenQuanYi Bitmap Song-12:Bold
-! URxvt.font: -*-tamzenforpowerline-medium-*-*-*-16-*-*-*-*-*-*-*, -gnu-Unifont-Medium-R-Normal-Sans-16-160-75-75-c-80-iso10646-1, xft:Noto Emoji:style=Regular:size=16
-! URxvt.boldFont: -*-tamzenforpowerline-bold-*-*-*-16-*-*-*-*-*-*-*, -gnu-Unifont-Medium-R-Normal-Sans-16-160-75-75-c-80-iso10646-1, xft:Noto Emoji:style=Regular:size=16
 
 ! URxvt.font: -*-tamzenforpowerline-medium-*-*-*-16-*-*-*-*-*-*-*,\
 ! -xos4-terminusicons2mono-medium-r-normal--12-128-72-72-m-68-iso8859-1,\
@@ -32,12 +28,6 @@ URxvt.perl-ext-common: default,matcher,clipboard,keyboard-select
 ! -xos4-terminusicons2mono-medium-r-normal--12-128-72-72-m-68-iso8859-1,\
 ! -gnu-Unifont-Medium-R-Normal-Sans-16-160-75-75-c-80-iso10646-1,\
 ! xft:Noto Emoji:style=Regular:size=16
-
-! URxvt.font: -*-tamzenforpowerline-medium-*-*-*-16-*-*-*-*-*-*-*, -wenquanyi-wenquanyi bitmap song-medium-r-normal--16-120-75-75-p-119-iso10646-1
-! URxvt.boldFont: -*-tamzenforpowerline-bold-*-*-*-16-*-*-*-*-*-*-*, -wenquanyi-wenquanyi bitmap song-bold-r-normal--16-120-75-75-p-119-iso10646-1
-! URxvt.font: xft:Monoid HalfTight:style=Retina:size=9, xft:Icons:size=9, xft:根源黑体 UI Regular:style=Regular:size=9
-! URxvt.boldFont: xft:Monoid HalfTight:style=Bold:size=9, xft:Icons:size=9, xft:根源黑体 UI:style=Bold:size=9
-! URxvt.italicFont: xft:Monoid HalfTight:style=Italic:size=9, xft:Icons:size=9, xft:根源黑体 UI:style=Light:size=9
 
 URxvt.font: xft:Inziu Iosevka SC:style=Regular:size=9, xft:FontAwesome:style=Regular:size=9
 URxvt.boldFont: xft:Inziu Iosevka SC:style=Bold:size=9, xft:FontAwesome:style=Regular:size=9

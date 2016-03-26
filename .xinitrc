@@ -35,8 +35,6 @@ xset +fp $HOME/.fonts/ohsnap
 xset +fp $HOME/.fonts/terminesspoerline
 xset +fp $HOME/.fonts/tewi
 
-urxvtd -q -f -o
-
 # xrandr --output DP1 --auto --primary --output DP2 --auto --right-of DP1 --output eDP1 --off
 xrandr --output DP1 --off --output DP2 --off --output eDP1 --auto --primary
 
