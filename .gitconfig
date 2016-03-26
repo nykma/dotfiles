@@ -2,13 +2,17 @@
 	name = Nyk Ma
 	email = moe@nayuki.info
 	signingkey = C385E926
+  logallrefupdates=true
 [merge]
-	tool = opendiff
+	tool = vimdiff
+[diff]
+	tool = vimdiff
 [gui]
 	fontui = -family \"Hiragino Sans GB\" -size 13 -weight normal -slant roman -underline 0 -overstrike 0
 	fontdiff = -family \"Source Code Pro\" -size 11 -weight normal -slant roman -underline 0 -overstrike 0
 [core]
-	excludesfile = /Users/moenayuki/.gitignore_global
+	excludesfile = /home/nykma/.gitignore_global
+  editor = vim
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
@@ -20,6 +24,8 @@
     prompt = false
 [push]
 	default = matching
+[pull]
+  rebase = true
 [alias]
 	a = add --all
 	ai = add -i
@@ -60,14 +66,27 @@
 	fo = fetch origin
 	fu = fetch upstream
 	#############
-	fp = format-patch
+  fl = flow
+  flf = flow feature
+  flb = flow bugfix
+  flr = flow release
+  flh = flow hotfix
+  flfs = flow feature start
+  flff = flow feature finish
+  flbs = flow bugfix start
+  flbf = flow bugfix finish
+  flhs = flow hotfix start
+  flhf = flow hotfix finish
 	#############
-	fk = fsck
+  # fp = format-patch
 	#############
-	g = grep -p
+  # fk = fsck
+	#############
+  # g = grep -p
 	#############
 	l = log --oneline
 	lg = log --oneline --graph --decorate
+  lp = log -p
 	last = show HEAD
 	#############
 	ls = ls-files
@@ -122,6 +141,7 @@
 	rhh = reset --hard HEAD
 	rmh = reset --mixed HEAD
 	rsh = reset --soft HEAD
+  regret = reset --soft HEAD~1
 	#############
 	r = remote
 	ra = remote add

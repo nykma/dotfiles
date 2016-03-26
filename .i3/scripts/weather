@@ -1,0 +1,67 @@
+#!/usr/bin/env ruby
+# Copyright 2016 Nyk Ma <moe@nayuki.info>
+# Licensed under the terms of the MIT license.
+#
+# This script outputs current weather based on city pinyin in China,
+# and should be used with i3blocks.
+#
+# Help yourself by editing `city_pinyin`
+#
+# Use FontAwesome to show eye-candy icons properly.
+# https://fortawesome.github.io/Font-Awesome/cheatsheet/
+
+city_pinyin = 'shanghai'
+
+require 'json'
+require 'uri'
+require 'net/http'
+
+uri = URI.parse("http://apistore.baidu.com")
+http = Net::HTTP.new(uri.host, uri.port)
+request = Net::HTTP::Get.new("/microservice/weather?citypinyin=#{city_pinyin}")
+response = http.request(request)
+
+result = JSON.parse(response.body)
+abort if result['errNum'] != 0
+data = result['retData']
+full_text = case data['weather']
+            when '多云' then '☁️'
+            when '晴' then '☀️'
+            else data['weather']
+            end
+full_text += " #{data['temp']}°C"
+text_color = case data['temp'].to_i
+             when -10..0 then '#0080FF'
+             when  0..10 then '#4DA6FF'
+             when 10..20 then '#4DFFA5'
+             when 20..25 then '#FFB1B1'
+             when 25..30 then '#FF6262'
+             when 30..40 then '#FF1414'
+             else '#FFFFFF'
+             end
+
+puts full_text, full_text, text_color
+
+__END__
+{"errNum"=>0,
+ "errMsg"=>"success",
+ "retData"=>
+{"city"=>"上海",
+ "pinyin"=>"shanghai",
+ "citycode"=>"101020100",
+ "date"=>"16-03-26",
+ "time"=>"11:00",
+ "postCode"=>"200000",
+ "longitude"=>121.445,
+ "latitude"=>31.213,
+ "altitude"=>"19",
+ "weather"=>"多云",
+ "temp"=>"15",
+ "l_tmp"=>"8",
+ "h_tmp"=>"15",
+ "WD"=>"西风",
+ "WS"=>"微风(<10km/h)",
+ "sunrise"=>"05:49",
+ "sunset"=>"18:09"
+}
+}
