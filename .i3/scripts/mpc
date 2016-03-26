@@ -15,9 +15,13 @@ if mpc_output.length == 0
   puts ' Stopped', ' Stopped', '#FF7300'
   exit
 end
-# ["takanax - Zap Your Channel", "[playing] #2/8   0:02/6:09 (0%)"]
-artist,  title = mpc_output.first.split(' - ')
-status, track_number,   time,   progress = mpc_output.last.split()
+# ["takanax - Zap Your Channel", "[playing] #2/8   0:02/6:09 (0%)", 'ERROR: Failed to open audio output']
+# if mpc_output.last.include?('ERROR')
+  # puts mpc_output.last, mpc_output.last, '#FF0000'
+  # exit
+# end
+artist,  title = mpc_output[0].split(' - ')
+status, track_number, time, progress = mpc_output[1].split()
 status.gsub!(/[\[\]]/, '')
 current_time, total_time = time.split('/')
 current_track, total_track = track_number.gsub(/#/, '').split('/')
