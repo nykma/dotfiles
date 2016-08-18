@@ -1,114 +1,85 @@
 " ~/.vimrc
 set nocompatible                " be iMproved
+language en_US.UTF-8
 filetype off                    " required!
 set shell=/bin/bash
-set rtp+=~/.vim/bundle/Vundle.vim/
-call vundle#begin()
 
-" let Vundle manage Vundle
-" Install Vundle first by running:
-" git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-Plugin 'gmarik/Vundle.vim'
+call plug#begin('~/.vim/bundle')
 
-"my Plugin here:
-Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'kien/ctrlp.vim'
-"Plugin 'sukima/xmledit'
-Plugin 'sjl/gundo.vim'
-Plugin 'gcmt/wildfire.vim'
-" Plugin 'athanaelkane/vim-indent-guides'
-Plugin 'jiangmiao/auto-pairs'
-"Plugin 'klen/python-mode'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'sjl/gundo.vim'
+Plug 'gcmt/wildfire.vim'
+Plug 'jiangmiao/auto-pairs'
+Plug 'zefei/vim-wintabs'
 
-Plugin 'Valloric/ListToggle'
-Plugin 'Konfekt/FastFold'
-" Plugin 'digitaltoad/vim-jade'
-" Plugin 'pangloss/vim-javascript'
-" Plugin 'othree/yajs.vim'
-" Plugin 'mxw/vim-jsx'
-" Plugin 'mattn/emmet-vim'
-" Plugin 'tpope/vim-projectionist'
-" Plugin 'tfnico/vim-gradle'
-
-Plugin 'dyng/ctrlsf.vim'
-Plugin 'AndrewRadev/splitjoin.vim'
+Plug 'Valloric/ListToggle'
+Plug 'Konfekt/FastFold'
+Plug 'junegunn/fzf', { 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'dyng/ctrlsf.vim'
+Plug 'AndrewRadev/splitjoin.vim'
+Plug 'Yggdroot/indentLine'
 
 " Powerful jump-to 
-Plugin 'easymotion/vim-easymotion'
+Plug 'easymotion/vim-easymotion'
 
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'mattn/emmet-vim'
 
-" Plugin 'Valloric/YouCompleteMe'
-" Plugin 'ervandew/supertab'
-Plugin 'scrooloose/syntastic'
-Plugin 'scrooloose/nerdcommenter'
-" Plugin 'luochen1990/rainbow'
-Plugin 'airblade/vim-gitgutter'
-" Plugin 'thinca/vim-ref'
-Plugin 'zenbro/mirror.vim'
+Plug 'scrooloose/syntastic'
+
+function! DoRemote(arg)
+    UpdateRemotePlugins
+endfunction
+Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote')  }
+
+Plug 'scrooloose/nerdcommenter'
+
+Plug 'airblade/vim-gitgutter'
+
+Plug 'zenbro/mirror.vim'
+Plug 'KabbAmine/zeavim.vim'
 
 " Theme
-" Plugin 'chriskempson/base16-vim'
-" Plugin 'altercation/vim-colors-solarized'
-"Plugin 'zenorocha/dracula-theme', {'rtp': 'vim/'}
-Plugin 'w0ng/vim-hybrid'
+Plug 'chriskempson/base16-vim'
+Plug 'w0ng/vim-hybrid'
 
-" IM Intergration
-" Plugin 'fcitx.vim'
-
-" Git command: https://github.com/tpope/vim-fugitive
-Plugin 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 if has('nvim')
-  Plugin 'bling/vim-airline'
-  Plugin 'janko-m/vim-test'
-  Plugin 'kassio/neoterm'
+  " Plug 'vim-airline/vim-airline'
+  Plug 'janko-m/vim-test'
+  Plug 'kassio/neoterm'
 end
-Plugin 'majutsushi/tagbar'
-Plugin 'godlygeek/tabular'
-Plugin 'vim-ruby/vim-ruby'
-" Plugin 'nathangrigg/vim-beancount'
-" Plugin 'keith/swift.vim'
-Plugin 'asins/vimcdoc'
-Plugin 'tpope/vim-surround'
-Plugin 'Yggdroot/indentLine'
-Plugin 'tpope/vim-dispatch'
-Plugin 'hotoo/pangu.vim'
 
+Plug 'majutsushi/tagbar'
+Plug 'godlygeek/tabular'
 
-" Unite
-Plugin 'Shougo/vimproc.vim'
-Plugin 'Shougo/vimshell.vim'
-Plugin 'Shougo/unite.vim'
-Plugin 'Shougo/neomru.vim'
-Plugin 'Shougo/neoyank.vim'
-Plugin 'basyura/unite-rails'
-Plugin 'thinca/vim-unite-history'
-Plugin 'h1mesuke/unite-outline'
-Plugin 'Shougo/neocomplete.vim'
+Plug 'asins/vimcdoc'
+Plug 'tpope/vim-surround'
 
-Plugin 'terryma/vim-multiple-cursors'
-" Plugin 'antoyo/vim-licenses'
-" Rust intergration
-" Plugin 'rust-lang/rust.vim'
-"Plugin 'phildawes/racer'
-" Plugin 'elixir-lang/vim-elixir'
-" Plugin 'avdgaag/vim-phoenix'
+Plug 'tpope/vim-dispatch'
+Plug 'hotoo/pangu.vim'
 
-" Plugin 'vimwiki/vimwiki'
+Plug 'terryma/vim-multiple-cursors'
 
-" Plugin 'kchmck/vim-coffee-script'
-Plugin 'tpope/vim-rails'
-" Plugin 'posva/vim-vue'
-" Plugin 'TAKAyukiatkwsk/vim-mongoid-syntax'
-" Plugin 'hallison/vim-ruby-sinatra'
-" Plugin 'slim-template/vim-slim'
+Plug 'sheerun/vim-polyglot'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-bundler'
+Plug 'posva/vim-vue'
 
-Plugin 'dkprice/vim-easygrep'
-Plugin 'kshenoy/vim-signature'
+Plug 'jceb/vim-orgmode'
+Plug 'speeddating.vim'
+Plug 'SyntaxRange'
+" Plug 'kylef/apiblueprint.vim'
 
-call vundle#end()
+Plug 'kshenoy/vim-signature'
+Plug 'mhinz/vim-startify'
+
+Plug 'mrtazz/simplenote.vim'
+
+call plug#end()
 
 "------------------------------------------------------------
 "" * General
@@ -116,9 +87,9 @@ call vundle#end()
 filetype plugin indent on
 syntax on
 set encoding=utf-8
-set fileencodings=utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
+set fileencodings=utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1,iso-8859-2
 set shiftwidth=2
-set tabstop=2
+set tabstop=8
 " autocmd FileType javascript,javascript.jsx,html setlocal shiftwidth=4 tabstop=4
 set expandtab
 set smartindent
@@ -160,16 +131,16 @@ set tags+=gems.tags
 "" * UI & Font
 "------------------------------------------------------------
 set mouse=a
-set guioptions=agm
 " set guifont=Fira\ Mono\ for\ Powerline:h12
-set guifont=Monoid\ Retina:h12
 set background=dark
 if has("gui_running")
+  set guifont=Monoid\ Retina:h12
+  set guioptions=agm
   set guicursor=n:blinkon0
   colorscheme base16-eighties
   set transparency=5
 else
-  let g:hybrid_use_Xresources = 1
+  let g:hybrid_use_Xresources = 0
   colorscheme hybrid
   " colorscheme solarized
 endif
@@ -182,7 +153,6 @@ set undofile
 "------------------------------------------------------------
 "" * Hotkeys
 "------------------------------------------------------------
-nmap <Leader>b 0
 nmap <Leader>e $
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>/ :nohl<CR>
@@ -208,15 +178,59 @@ nmap H gT
 nmap L gt
 
 iab <expr> <dts> strftime("%Y-%m-%d %H:%M:%S")
+iab <expr> <ts> strftime("%s")
+
+"------------------------------------------------------------
+"" * deoplete
+"------------------------------------------------------------
+let g:deoplete#enable_at_startup = 1
+
 "------------------------------------------------------------
 "" * Syntastic
 "------------------------------------------------------------
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
 "let g:syntastic_always_populate_loc_list=1
 " let g:syntastic_error_symbol = '✗'
 " let g:syntastic_warning_symbol = '⚠'
+
 let g:syntastic_javascript_checkers = ['jscs']
+let g:syntastic_c_compiler = 'clang'
+let g:syntastic_c_checker = 'clang-check'
+" let g:jsx_ext_required = 0
+
+"------------------------------------------------------------
+"" * Native Status Line
+"" Comment these when Airline or Powerline is enabled
+" http://stackoverflow.com/a/10416234
+" http://got-ravings.blogspot.jp/2008/08/vim-pr0n-making-statuslines-that-own.html
+"------------------------------------------------------------
+hi User1 ctermfg=black  ctermbg=blue
+hi User2 ctermfg=white  ctermbg=black
+hi User5 ctermfg=lightcyan  ctermbg=black
+hi User7 ctermfg=lightred ctermbg=black
+hi User8 ctermfg=yellow  ctermbg=black
+hi User10 ctermfg=green  ctermbg=black
+
+set statusline=
+" set statusline+=%7*\[%n]                                  "buffernr
+set statusline +=%1*%-.40F\                                "File+path
+set statusline +=%7*\ %{tagbar#currenttag('%s','N/A')}
+" set statusline+=%2*\ %y\                                  "FileType
+" set statusline+=%3*\ %{''.(&fenc!=''?&fenc:&enc).''}      "Encoding
+" set statusline+=%3*\ %{(&bomb?\",BOM\":\"\")}\            "Encoding2
+" set statusline+=%4*\ %{&ff}\                              "FileFormat (dos/unix..) 
+" set statusline+=%5*\ %{&spelllang}\%{HighlightSearch()}\  "Spellanguage & Highlight on?
+set statusline +=%5*\ %=\ %{v:register}\                     "Current register
+set statusline +=%2*\ 0x%04B              " UTF-8 value of current byte
+set statusline +=%5*\ %{fugitive#head()}
+set statusline +=%7*\ %{SyntasticStatuslineFlag()}
+set statusline+=%8*\ %l/%L             "Rownumber/total (%)
+" set statusline+=%9*\ col:%03c\                            "Colnr
+set statusline+=%5*\ \ %m%r%w                      "Modified? Readonly? Top/bot.
 
 "------------------------------------------------------------
 "" * UltiSnips
@@ -248,11 +262,6 @@ let g:SignatureMarkTextHLDynamic = 1
 "------------------------------------------------------------
 let g:NERDSpaceDelims=1 " Add space after comment symbol.
 
-" 保存快捷键
-" map <leader>SS :mksession! ~/.vim/my.vim<cr> :wviminfo! ~/.vim/my.viminfo<cr>
-" 恢复快捷键
-" map <leader>RS :source ~/.vim/my.vim<cr> :rviminfo ~/.vim/my.viminfo<cr>
-
 "------------------------------------------------------------
 "" * Gundo
 "------------------------------------------------------------
@@ -263,6 +272,27 @@ nnoremap <Leader>ud :GundoToggle<CR>
 "------------------------------------------------------------
 " nnoremap <Leader>t :Tagbar<CR>
 
+"------------------------------------------------------------
+"" * vim-wintabs
+"------------------------------------------------------------
+
+map <C-N> <Plug>(wintabs_previous)
+map <C-P> <Plug>(wintabs_next)
+map <C-T>c <Plug>(wintabs_close)
+map <C-T>o <Plug>(wintabs_only)
+map <C-W>c <Plug>(wintabs_close_window)
+map <C-W>o <Plug>(wintabs_only_window)
+command! Tabc WintabsCloseVimtab
+command! Tabo WintabsOnlyVimtab
+
+" let g:wintabs_display = 'statusline'
+let g:wintabs_autoclose = 2
+let g:wintabs_autoclose_vimtab = 1
+" let g:wintabs_ui_active_left = '['
+" let g:wintabs_ui_active_right = ']'
+hi! TabLine ctermfg=bg ctermbg=DarkCyan
+hi! TabLineFill ctermfg=bg ctermbg=DarkCyan
+hi! TabLineSel ctermfg=black ctermbg=Blue
 
 "------------------------------------------------------------
 "" * vim-test
@@ -293,13 +323,13 @@ let g:wildfire_objects = ["i'", 'i"', "i)", "i]", "i}", "i>", "ip", "i/"]
 "------------------------------------------------------------
 "" * Powerline && Airline (only for NeoVim)
 "------------------------------------------------------------
-if !has('nvim')
-  let g:Powerline_symbols = 'fancy'
-  set rtp+=/usr/lib/python3.5/site-packages/powerline/bindings/vim
-else
-  let g:airline_powerline_fonts = 1
-  let g:airline#extensions#tabline#enabled = 1
-end
+" if !has('nvim')
+  " let g:Powerline_symbols = 'fancy'
+  " set rtp+=/usr/lib/python3.5/site-packages/powerline/bindings/vim
+" else
+  " let g:airline_powerline_fonts = 1
+  " " let g:airline#extensions#tabline#enabled = 1
+" end
 
 "------------------------------------------------------------
 "" * Tabular
@@ -324,62 +354,93 @@ let g:user_emmet_leader_key='<Leader>'
 "------------------------------------------------------------
 "" * CtrlP
 "------------------------------------------------------------
-let g:ctrlp_map = '<Leader>p'
-let g:ctrlp_cmd = 'CtrlP'
-map <Leader>P <ESC>:CtrlPTag<CR>
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git)$',
-  \ 'file': '\v\.(log|jpg|png|jpeg)$',
-  \ }
+" let g:ctrlp_map = '<Leader>p'
+" let g:ctrlp_cmd = 'CtrlP'
+" map <Leader>P <ESC>:CtrlPTag<CR>
+" let g:ctrlp_custom_ignore = {
+  " \ 'dir':  '\v[\/]\.(git)$',
+  " \ 'file': '\v\.(log|jpg|png|jpeg)$',
+  " \ }
 
 
 "------------------------------------------------------------
 "" * Unite
 "------------------------------------------------------------
-let g:unite_source_history_yank_enable = 1
-nnoremap <space>p :Unite -buffer-name=file_rec file_rec/async -auto-preview<cr>
-nnoremap <space>/ :Unite -buffer-name=PT grep:.<CR>
-nnoremap <space>g :Unite -buffer-name=PT grep:. -buffer-name=PT<CR><C-R><C-W>
-nnoremap <space>y :Unite -buffer-name=History\ -\ Yank history/yank<cr>
-nnoremap <space>s :Unite -buffer-name=Quick\ match  -quick-match buffer<cr>
-nnoremap <space>b :Unite -buffer-name=Buffer buffer<cr>
-nnoremap <space>t :Unite -buffer-name=Outline outline<cr>
-nnoremap <space>a :UniteBookmarkAdd <cr>
-nnoremap <space>c :Unite -buffer-name=Bookmark bookmark<CR>
-nnoremap <space>m :Unite -buffer-name=Most\ recent\ used file_mru<CR>
-nnoremap <space>l :UniteResume<CR>
-nnoremap <space>f :UniteWithBufferDir -buffer-name=Files file<CR>
-" カーソル位置の単語をgrep検索
+" let g:unite_source_history_yank_enable = 1
+" nnoremap <space>p :Unite -buffer-name=file_rec file_rec/async -auto-preview<cr>
+" nnoremap <space>/ :Unite -buffer-name=PT grep:.<CR>
+" nnoremap <space>g :Unite -buffer-name=PT grep:. -buffer-name=PT<CR><C-R><C-W>
+" nnoremap <space>y :Unite -buffer-name=History\ -\ Yank history/yank<cr>
+" nnoremap <space>s :Unite -buffer-name=Quick\ match  -quick-match buffer<cr>
+" nnoremap <space>b :Unite -buffer-name=Buffer buffer<cr>
+" nnoremap <space>t :Unite -buffer-name=Outline outline<cr>
+" nnoremap <space>a :UniteBookmarkAdd <cr>
+" nnoremap <space>c :Unite -buffer-name=Bookmark bookmark<CR>
+" nnoremap <space>m :Unite -buffer-name=Most\ recent\ used file_mru<CR>
+" nnoremap <space>l :UniteResume<CR>
+" nnoremap <space>f :UniteWithBufferDir -buffer-name=Files file<CR>
+" " カーソル位置の単語をgrep検索
 
-"インサートモードで開始
-"let g:unite_enable_start_insert = 1
-""最近開いたファイル履歴の保存数
-let g:unite_source_file_mru_limit = 10
-let g:unite_source_file_mru_filename_format = ''
-autocmd FileType unite call s:unite_my_settings()
-function! s:unite_my_settings()
-  nmap <buffer> <ESC> <Plug>(unite_exit)
-  nnoremap <silent> <buffer> <expr> <C-x> unite#do_action('split')
-  inoremap <silent> <buffer> <expr> <C-x> unite#do_action('split')
-  nnoremap <silent> <buffer> <expr> <C-v> unite#do_action('vsplit')
-  inoremap <silent> <buffer> <expr> <C-v> unite#do_action('vsplit')
-  nnoremap <silent> <buffer> <expr> <C-t> unite#do_action('tabnew')
-  inoremap <silent> <buffer> <expr> <C-t> unite#do_action('tabnew')
-  nnoremap <silent> <buffer> <expr> <C-o> unite#do_action('open')
-  inoremap <silent> <buffer> <expr> <C-o> unite#do_action('open')
-endfunction
+" "インサートモードで開始
+" "let g:unite_enable_start_insert = 1
+" ""最近開いたファイル履歴の保存数
+" let g:unite_source_file_mru_limit = 10
+" let g:unite_source_file_mru_filename_format = ''
+" autocmd FileType unite call s:unite_my_settings()
+" function! s:unite_my_settings()
+  " nmap <buffer> <ESC> <Plug>(unite_exit)
+  " nnoremap <silent> <buffer> <expr> <C-x> unite#do_action('split')
+  " inoremap <silent> <buffer> <expr> <C-x> unite#do_action('split')
+  " nnoremap <silent> <buffer> <expr> <C-v> unite#do_action('vsplit')
+  " inoremap <silent> <buffer> <expr> <C-v> unite#do_action('vsplit')
+  " nnoremap <silent> <buffer> <expr> <C-t> unite#do_action('tabnew')
+  " inoremap <silent> <buffer> <expr> <C-t> unite#do_action('tabnew')
+  " nnoremap <silent> <buffer> <expr> <C-o> unite#do_action('open')
+  " inoremap <silent> <buffer> <expr> <C-o> unite#do_action('open')
+" endfunction
 
-" 大文字小文字を区別しない
-let g:unite_enable_ignore_case = 1
-let g:unite_enable_smart_case = 1
+" " 大文字小文字を区別しない
+" let g:unite_enable_ignore_case = 1
+" let g:unite_enable_smart_case = 1
 
-let g:neoyank#file = '~/.vim/unite/neoyank/file'
+" let g:neoyank#file = '~/.vim/unite/neoyank/file'
 
-if executable('pt')
-  let g:unite_source_grep_command = 'pt'
-  let g:unite_source_grep_default_opts = '--nogroup --nocolor'
-  let g:unite_source_grep_recursive_opt = ''
-endif
+" if executable('pt')
+  " let g:unite_source_grep_command = 'pt'
+  " let g:unite_source_grep_default_opts = '--nogroup --nocolor'
+  " let g:unite_source_grep_recursive_opt = ''
+" endif
+
+"------------------------------------------------------------
+"" * fzf.vim
+"------------------------------------------------------------
+set rtp+=~/.vim/bundle/fzf/bin/fzf
+map <Space>m :Marks<cr>
+map <Space>b :Buffers<cr>
+map <Space>f :GitFiles<cr>
+map <Space>F :Files<cr>
+map <Space>p :Commands<cr>
+map <Space>l :BLines<cr>
+map <Space>h :History<cr>
+map <Space>t :Tags<cr>
+map <Space>s :Snippets<cr>
+map <Space>c :Commits<cr>
+
+let g:fzf_buffers_jump = 1
+let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
+let g:fzf_tags_command = 'ctags -R'
+
+"------------------------------------------------------------
+"" * CtrlSF
+"------------------------------------------------------------
+map <Space>/ <Plug>CtrlSFPrompt
+map <Space>? :CtrlSFToggle<CR>
+let g:ctrlsf_auto_close = 0
+let g:ctrlsf_case_sensitive = 'smart'
+let g:ctrlsf_ackprg = '/usr/bin/pt'
+let g:ctrlsf_extra_backend_args = {
+  \ 'pt': '--home-ptignore' }
+let g:ctrlsf_ignore_dir = ['bower_components', 'npm_modules']
 
 "------------------------------------------------------------
 "" * NerdTREE
@@ -388,18 +449,6 @@ map <Leader><tab> <ESC>:NERDTreeToggle<CR>
 let NERDTreeIgnore=['node_modules$[[dir]]', '.o$[[file]]', '\~$', '.d$[[dir]]']
 
 " map <Leader>cc :NERDComToggleComment<CR>
-
-
-"------------------------------------------------------------
-"" * Syntastic
-"------------------------------------------------------------
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-let g:jsx_ext_required = 0
-
 
 "------------------------------------------------------------
 "" * EasyMotion
@@ -424,6 +473,11 @@ omap / <Plug>(easymotion-tn)
 map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)")
 
+map <Leader><leader>h <Plug>(easymotion-linebackward)
+map <Leader><leader>l <Plug>(easymotion-lineforward)
+map <Leader><Leader>j <Plug>(easymotion-j)
+map <Leader><Leader>k <Plug>(easymotion-k)
+
 
 "------------------------------------------------------------
 "" * Ruby
@@ -443,8 +497,8 @@ autocmd FileType c,cpp,java,php,ruby,python,javascript,javascript.jsx,json,conf 
 "------------------------------------------------------------
 "" * EasyGrep
 "------------------------------------------------------------
-let g:EasyGrepCommand = 1 " Use grepprg
-set grepprg=pt\ -e
+" let g:EasyGrepCommand = 1 " Use grepprg
+" set grepprg=pt\ -e
 
 "------------------------------------------------------------
 "" * PanGu
@@ -482,8 +536,10 @@ end
 "------------------------------------------------------------
 "" * mirror.vim
 "------------------------------------------------------------
-let g:mirror#config_path = '~/.vim/mirrors'
+let g:mirror#config_path = expand('~/.vim/mirrors')
 let g:mirror#cache_dir = '/tmp/mirror.vim'
+let g:mirror#diff_layout = 'vsplit'
+let g:netrw_silent=0
 
 "------------------------------------------------------------
 "" * neocomplete.vim
@@ -504,3 +560,12 @@ let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 "------------------------------------------------------------
 nnoremap <silent> <leader>DD :exe ":profile start profile.log"<cr>:exe ":profile func *"<cr>:exe ":profile file *"<cr>
 nnoremap <silent> <leader>DQ :exe ":profile pause"<cr>:noautocmd qall!<cr>
+
+"------------------------------------------------------------
+"" * SimpleNote
+"------------------------------------------------------------
+source ~/.config/simplenoterc
+let g:SimplenoteListHeight=20
+let g:SimplenoteNoteFormat="[%F](%D) %N%>%T"
+let g:SimplenoteStrftime="%Y-%m-%d %T"
+let g:SimplenoteFiletype="markdown"

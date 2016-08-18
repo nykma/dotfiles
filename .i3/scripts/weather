@@ -5,32 +5,36 @@
 # This script outputs current weather based on city pinyin in China,
 # and should be used with i3blocks.
 #
-# Help yourself by editing `city_pinyin`
+# Help yourself by editing `CITY_ID`
 #
 # Use FontAwesome to show eye-candy icons properly.
 # https://fortawesome.github.io/Font-Awesome/cheatsheet/
 
-city_pinyin = 'shanghai'
+# require 'byebug'
+
+# Find city ID in http://bulk.openweathermap.org/sample/city.list.json.gz
+CITY_ID = '1796236' # Shanghai
+APP_ID ='xxxxx'
+UNIT = :metric # :imperial
 
 require 'json'
 require 'uri'
 require 'net/http'
 
-uri = URI.parse("http://apistore.baidu.com")
+uri = URI.parse("http://api.openweathermap.org")
 http = Net::HTTP.new(uri.host, uri.port)
-request = Net::HTTP::Get.new("/microservice/weather?citypinyin=#{city_pinyin}")
+request = Net::HTTP::Get.new("/data/2.5/weather?id=#{CITY_ID}&appid=#{APP_ID}&units=#{UNIT}")
 response = http.request(request)
 
 result = JSON.parse(response.body)
-abort if result['errNum'] != 0
-data = result['retData']
-full_text = case data['weather']
-            when '多云' then '☁️'
-            when '晴' then '☀️'
-            else data['weather']
+abort if result['cod'] != 200
+full_text = case result['weather'].first['main']
+            when 'Clouds' then '☁️'
+            when 'Clear' then '☀️'
+            else result['weather'].first['main']
             end
-full_text += " #{data['temp']}°C"
-text_color = case data['temp'].to_i
+full_text += " #{result['main']['temp'].to_i}°C"
+text_color = case result['main']['temp'].to_i
              when -10..0 then '#0080FF'
              when  0..10 then '#4DA6FF'
              when 10..20 then '#4DFFA5'

@@ -5,6 +5,8 @@
 - i3
   - i3blocks
 - vim
+- spacemacs
 - gitconfig
 - powerline
 - mpd
+- fish

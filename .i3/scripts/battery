@@ -10,7 +10,8 @@
 
 # $ acpi -b
 # Battery 0: Full, 98%
-charge_status, percentage, time= `acpi -b`.gsub(/Battery 0: /, '').split(', ')
+
+charge_status, percentage, = `acpi -b`.gsub(/Battery 0: /, '').split(', ')
 percentage = percentage.gsub(/\%/, '').to_i
 full_text = ''
 

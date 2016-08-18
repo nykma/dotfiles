@@ -1,4 +1,4 @@
-Xft.dpi: 192
+! Xft.dpi: 160
 
 Xft.antialias: true
 Xft.autohint: 1
@@ -13,25 +13,24 @@ URxvt.depth: 32
 URxvt.loginShell: true
 URxvt.scrollBar: false
 URxvt.saveLines: 1024
-! URxvt.background:  rgba:0000/0000/0000/dddd
 URxvt.transparent: true
 URxvt.shading: 15
 URxvt.mouseWheelScrollPage: true
 ! URxvt.background: rgba:1111/1111/1111/dddd
 URxvt.perl-ext-common: default,matcher,clipboard,keyboard-select
 
-! URxvt.font: -*-tamzenforpowerline-medium-*-*-*-16-*-*-*-*-*-*-*,\
-! -xos4-terminusicons2mono-medium-r-normal--12-128-72-72-m-68-iso8859-1,\
-! -gnu-Unifont-Medium-R-Normal-Sans-16-160-75-75-c-80-iso10646-1,\
-! xft:Noto Emoji:style=Regular:size=16
-! URxvt.boldFont: -*-tamzenforpowerline-bold-*-*-*-16-*-*-*-*-*-*-*,\
-! -xos4-terminusicons2mono-medium-r-normal--12-128-72-72-m-68-iso8859-1,\
-! -gnu-Unifont-Medium-R-Normal-Sans-16-160-75-75-c-80-iso10646-1,\
-! xft:Noto Emoji:style=Regular:size=16
+URxvt.font: -*-tamzenforpowerline-medium-*-*-*-16-*-*-*-*-*-*-*,\
+-xos4-terminusicons2mono-medium-r-normal--12-128-72-72-m-68-iso8859-1,\
+-gnu-Unifont-Medium-R-Normal-Sans-16-160-75-75-c-80-iso10646-1,\
+xft:Noto Emoji:style=Regular:size=16
+URxvt.boldFont: -*-tamzenforpowerline-bold-*-*-*-16-*-*-*-*-*-*-*,\
+-xos4-terminusicons2mono-medium-r-normal--12-128-72-72-m-68-iso8859-1,\
+-gnu-Unifont-Medium-R-Normal-Sans-16-160-75-75-c-80-iso10646-1,\
+xft:Noto Emoji:style=Regular:size=16
 
-URxvt.font: xft:Inziu Iosevka SC:style=Regular:size=9, xft:FontAwesome:style=Regular:size=9
-URxvt.boldFont: xft:Inziu Iosevka SC:style=Bold:size=9, xft:FontAwesome:style=Regular:size=9
-URxvt.italicFont: xft:Inziu Iosevka SC:style=Italic:size=9, xft:FontAwesome:style=Regular:size=9
+! URxvt.font: xft:mononoki:style=Regular:size=9, xft:Inziu Iosevka SC:style=Regular:size=9, xft:FontAwesome:style=Regular:size=9
+! URxvt.boldFont: xft:mononoki:style=Bold:size=9, xft:Inziu Iosevka SC:style=Bold:size=9, xft:FontAwesome:style=Regular:size=9
+! URxvt.italicFont: xft:mononoki:style=Italicc:size=9, xft:Inziu Iosevka SC:style=Italic:size=9, xft:FontAwesome:style=Regular:size=9
 
 ! URxvt.lineSpace: -5
 ! URxvt.letterSpace: -1
@@ -51,11 +50,11 @@ URxvt.matcher.rend.0: Uline Bold fg5
 ! Rofi config
 ! Rofi
 rofi.opacity:           90
-rofi.width:             100
+rofi.width:             80
 rofi.lines:             5
 ! rofi.font:              Source Code Pro 9
 rofi.font: 根源黑体 UI Regular 18
-rofi.separator-style:   none
+rofi.separator-style:   dash
 rofi.hide-scrollbar:    true
 rofi.padding:           340
 rofi.eh:                2
@@ -75,4 +74,5 @@ rofi.bw:                0
 !#include "/home/nykma/.config/termcolors/s3r0"
 !#include "/home/nykma/.config/termcolors/nix_e7"
 !#include "/home/nykma/.config/termcolors/base16_eighties"
-
+! #include "/home/nykma/.config/termcolors/base16-xresources/base16-eighties.dark.256.xresources"
+! #include "/home/nykma/.config/termcolors/base16-xresources/base16-eighties.dark.xresources"

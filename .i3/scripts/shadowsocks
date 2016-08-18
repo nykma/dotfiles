@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+# Copyright 2016 Nyk Ma <moe@nayuki.info>
+# Licensed under the terms of the MIT license.
+#
+# Show current shadowsocks profile name
+# Should be used with i3blocks.
+
+temp = `systemctl status | grep 'shadowsocks@'`.split.find { |text| text.end_with?('.service') }
+if temp.nil?
+  puts 'OFF', 'OFF', '#FFF600'
+else
+  profile_name = /(?<=shadowsocks@).*(?=\.service)/.match(temp)
+  puts profile_name, profile_name, '#A8FF00'
+end
+

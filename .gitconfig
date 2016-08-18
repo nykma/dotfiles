@@ -2,7 +2,7 @@
 	name = Nyk Ma
 	email = moe@nayuki.info
 	signingkey = C385E926
-  logallrefupdates=true
+	logallrefupdates=true
 [merge]
 	tool = vimdiff
 [diff]
@@ -12,7 +12,7 @@
 	fontdiff = -family \"Source Code Pro\" -size 11 -weight normal -slant roman -underline 0 -overstrike 0
 [core]
 	excludesfile = /home/nykma/.gitignore_global
-  editor = vim
+	editor = emacsclient -t
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
@@ -20,12 +20,12 @@
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [diff "pandoc"]
-    textconv=pandoc --to=markdown
-    prompt = false
+	textconv=pandoc --to=markdown
+	prompt = false
 [push]
 	default = matching
 [pull]
-  rebase = true
+	rebase = true
 [alias]
 	a = add --all
 	ai = add -i
@@ -60,33 +60,33 @@
 	dk = diff --check
 	dp = diff --patience
 	dck = diff --cached --check
-  wdiff = diff --word-diff=color --unified=1
+	wdiff = diff --word-diff=color --unified=1
 	#############
 	f = fetch
 	fo = fetch origin
 	fu = fetch upstream
 	#############
-  fl = flow
-  flf = flow feature
-  flb = flow bugfix
-  flr = flow release
-  flh = flow hotfix
-  flfs = flow feature start
-  flff = flow feature finish
-  flbs = flow bugfix start
-  flbf = flow bugfix finish
-  flhs = flow hotfix start
-  flhf = flow hotfix finish
+	fl = flow
+	flf = flow feature
+	flb = flow bugfix
+	flr = flow release
+	flh = flow hotfix
+	flfs = flow feature start
+	flff = flow feature finish
+	flbs = flow bugfix start
+	flbf = flow bugfix finish
+	flhs = flow hotfix start
+	flhf = flow hotfix finish
 	#############
-  # fp = format-patch
+	# fp = format-patch
 	#############
-  # fk = fsck
+	# fk = fsck
 	#############
-  # g = grep -p
+	# g = grep -p
 	#############
 	l = log --oneline
 	lg = log --oneline --graph --decorate
-  lp = log -p
+	lp = log -p
 	last = show HEAD
 	#############
 	ls = ls-files
@@ -98,7 +98,7 @@
 	ms = merge --skip
 	#############
 	o = checkout
-  oo = checkout --
+	oo = checkout --
 	ob = checkout -b
 	#############
 	pr = prune -v
@@ -141,7 +141,7 @@
 	rhh = reset --hard HEAD
 	rmh = reset --mixed HEAD
 	rsh = reset --soft HEAD
-  regret = reset --soft HEAD~1
+	regret = reset --soft HEAD~1
 	#############
 	r = remote
 	ra = remote add
